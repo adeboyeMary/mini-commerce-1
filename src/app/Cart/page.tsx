@@ -13,7 +13,7 @@ const Cart = ()  => {
     const total = useCartStore((state) => state.total);
 
     return (
-        <div className="mt-20 md:w-[45%] lg:w-[30%] m-auto shadow-lg p-4 text-base ">
+        <div className="bg-white mt-20 md:w-[45%] lg:w-[30%] m-auto shadow-lg p-4 text-base ">
             {cartProducts.length === 0 ? (
                 <div className="text-center text-[#8a2b06] ">
                     <p className="mb-4 text-sm ">Cart is empty! Add item to view cart.</p>

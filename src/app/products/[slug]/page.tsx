@@ -19,7 +19,7 @@ export default function ProductDetailsPage() {
   if (!product) return notFound();
 
     return (
-        <div className="flex flex-col p-4  ">
+        <div className="bg-white flex flex-col p-4  ">
             <ProductDetails product={product} />
         </div>
     )
