@@ -1,16 +1,26 @@
+'use client'
+import { useQuery } from '@tanstack/react-query';
+import { fetchProducts } from '../component/Catalogue';
+import { Product } from '@/store/cartStore';
 import Link from 'next/link';
-import Image from 'next/image';
 
-import { DUMMY_PRODUCTS } from '../component/Catalogue';
+import Image from 'next/image';
+// import { DUMMY_PRODUCTS } from '../component/Catalogue';
 
 
 export default function Home() {
+  const {data, isLoading, error} = useQuery<Product[]>({
+    queryKey: ['Products'],
+    queryFn: fetchProducts,
+  });
+
   return (
     <div className="bg-white p-2  text-[#8a2b06] text-sm top-0 mt-20  " >
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Something went wrong.</p>}
       <div className="list-none grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 m-auto w-[92%] gap-4 ">
-        {DUMMY_PRODUCTS.map((product) => 
-          <div key={product.id} className=' p-2 rounded-lg shadow-md hover:shadow-[0_0_20px_rgba(138,43,6,0.4)]
- '>
+        {data?.map((product) => 
+          <div key={product.id} className=' p-2 rounded-lg shadow-md hover:shadow-[0_0_20px_rgba(138,43,6,0.4)] '>
             <Link href={`/products/${product.slug}`}>
             <Image src={product.image} alt={product.name} width={250} height={250} className='w-[95%] object-cover m-auto rounded-lg' />
             <div className='flex flex-row justify-between p-1'>

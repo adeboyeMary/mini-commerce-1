@@ -1,25 +1,28 @@
 'use client'
-import { DUMMY_PRODUCTS } from "@/component/Catalogue";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProducts } from "@/component/Catalogue";
+import { Product } from "@/store/cartStore";
 import { notFound, useParams } from "next/navigation";
 import { ProductDetails } from "@/component/ProductDetails";
 
-// type PageProps = {
-//     params: {
-//     //   slug: string;
-//     params: { slug: string } 
-//     };
-//   };
-
-
 export default function ProductDetailsPage() {
+    const {data, isLoading, error} = useQuery<Product[]>({
+        queryKey: ['Products'],
+    queryFn: fetchProducts,
+    });
+
   const params = useParams();
   const slug = params?.slug as string;
 
-  const product = DUMMY_PRODUCTS.find((p) => p.slug === slug);
+  const product = data?.find((p) => p.slug === slug);
   if (!product) return notFound();
 
     return (
         <div className=" flex flex-col p-4  ">
+            {isLoading && <p className="mt-16 text-center">Loading...</p>}
+            {error && <p className="mt-16 text-center">Error! Something went wrong.</p>}
+
+  if (isLoading) return ;
             <ProductDetails product={product} />
         </div>
     )

@@ -28,11 +28,8 @@ const Cart = ()  => {
     }
     const closeBackdrop = () => {
         clearCart();
-
         setShoeBackdrop(false);
-
         console.log('button clicked...2...');
-
     }
 
     return (
