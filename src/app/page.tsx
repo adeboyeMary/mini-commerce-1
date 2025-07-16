@@ -11,7 +11,7 @@ export default function Home() {
         {DUMMY_PRODUCTS.map((product) => 
           <div key={product.id} className=' p-2 rounded-lg shadow-md hover:shadow-[0_0_20px_rgba(138,43,6,0.4)]
  '>
-            <Link href={`/product/${product.slug}`}>
+            <Link href={`/products/${product.slug}`}>
             <Image src={product.image} alt={product.name} width={250} height={250} className='m-auto' />
             <div className='flex flex-row justify-between p-1'>
               <h3 className='font-bold'>{product.name}</h3>
