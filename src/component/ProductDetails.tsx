@@ -14,9 +14,10 @@ type ProductType = {
 
 export const ProductDetails = ({product}: { product: ProductType }) => {
     const addToCart = useCartStore((state) => state.addToCart);
+    
 
     return (
-        <div className="bg-white flex flex-col p-4 mt-16  ">
+        <div className=" flex flex-col p-4 mt-16  ">
             <div className="flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4">
                 <Image src={product.image} alt={product.name} width={500} height={500} className='w-[500px] object-cover rounded-lg ' />
                 <div className=" mt-5">

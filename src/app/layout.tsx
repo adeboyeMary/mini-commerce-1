@@ -15,9 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-white ">
+      <body className=" ">
         <Header />
         {children}
+        <div id="portal-root" />
       </body>
     </html>
   );
