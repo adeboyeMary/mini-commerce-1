@@ -18,7 +18,7 @@ export const ProductDetails = ({product}: { product: ProductType }) => {
     return (
         <div className="flex flex-col p-4 mt-16  ">
             <div className="flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4">
-                <Image src={product.image} alt={product.name} width={500} height={500} className='w-[100] h-auto ' />
+                <Image src={product.image} alt={product.name} width={500} height={500} className='w-[500px] object-cover rounded-lg ' />
                 <div className=" mt-5">
                     <h1 className="text-3xl font-bold text-[#8a2b06] ">{product.name} </h1>
                     <div className="flex flex-row mt-3.5 text-sm gap-1 ">

@@ -1,6 +1,7 @@
 'use client'
 import { useCartStore } from "@/store/cartStore";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const Cart = ()  => {
@@ -13,7 +14,14 @@ const Cart = ()  => {
 
     return (
         <div className="mt-20 md:w-[45%] lg:w-[30%] m-auto shadow-lg p-4 text-base ">
-            <ul className="flex flex-col gap-4 ">
+            {cartProducts.length === 0 ? (
+                <div className="text-center text-[#8a2b06] ">
+                    <p className="mb-4 text-sm ">Cart is empty! Add item to view cart.</p>
+                    <Link href="/" className="bg-[#8a2b06] hover:bg-[#4d1601] text-white px-4 
+                        py-1 rounded-2xl text-sm ">Home</Link>
+                </div>
+            ) : (
+                <ul className="flex flex-col gap-4 ">
                 {cartProducts.map(product => (
                     <li key={product.id} id={product.id} className="flex flex-row gap-2 border-b-[1px] border-[#8a2b06] pb-2 ">
                         <div className="flex flex-row gap-3 ">
@@ -38,7 +46,6 @@ const Cart = ()  => {
 
                     </li>
                 ))}
-                {/* <hr className="border-[-1px] border-[#8a2b06] " /> */}
                 <div className="m-auto "><p>Total: #{total} </p></div>
                 <div className=" m-auto flex text-sm gap-7 ">
                     <button onClick={() => clearCart()} className='bg-[#8a2b06] hover:bg-[#4d1601] text-white px-4 
@@ -49,7 +56,8 @@ const Cart = ()  => {
                 
             </ul>
 
-            
+
+            )}            
         </div>
     )
                 
