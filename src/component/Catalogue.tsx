@@ -1,4 +1,6 @@
-export const DUMMY_PRODUCTS = [
+import { Product } from "@/store/cartStore";
+
+ const DUMMY_PRODUCTS = [
     {id:'a1', image: '/assets/toothpaste.jpg', name: 'Toothpaste', price:'1500', slug:"Toothpaste", 
         description:"FreshMint Whitening Toothpaste is your daily solution for a brighter smile and fresher breath. Specially formulated with natural mint extracts and fluoride, it gently whitens your teeth while strengthening enamel and fighting plaque. With consistent use, it helps remove surface stains without harsh abrasives, leaving your mouth feeling clean and refreshed all day. This toothpaste offers a smooth, refreshing mint flavor that’s not too strong, making it ideal for both adults and teens. It’s free from artificial dyes and unnecessary chemicals, making it a safer, more natural choice for your oral care routine. Dentist-approved and cruelty-free, FreshMint is perfect for everyday use—just brush twice a day and enjoy the confidence of a clean, radiant smile."
     },
@@ -24,3 +26,9 @@ export const DUMMY_PRODUCTS = [
         "GlowEssence Nourishing Body Oil is a lightweight, fast-absorbing formula crafted to hydrate, soften, and restore your skin’s natural glow. Infused with a blend of botanical oils like jojoba, almond, and vitamin E, it deeply moisturizes without leaving a greasy feel, leaving your skin silky-smooth and radiant all day long. Perfect for use after a shower or bath, this body oil locks in moisture while calming dry, dull, or sensitive skin. Its subtle natural fragrance adds a gentle, relaxing finish to your skincare routine. Whether you're pampering yourself at night or looking for a fresh, dewy look during the day, GlowEssence delivers rich nourishment and lasting softness for every skin type."
     },
 ];
+
+export const fetchProducts = async(): Promise<Product[]> =>  {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(DUMMY_PRODUCTS), 1000);
+    });
+};
