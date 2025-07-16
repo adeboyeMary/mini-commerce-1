@@ -6,7 +6,7 @@ import { DUMMY_PRODUCTS } from '../component/Catalogue';
 
 export default function Home() {
   return (
-    <div className=" p-2 bg-white text-[#8a2b06] text-sm top-0 mt-20  " >
+    <div className="bg-white p-2  text-[#8a2b06] text-sm top-0 mt-20  " >
       <div className="list-none grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 m-auto w-[92%] gap-4 ">
         {DUMMY_PRODUCTS.map((product) => 
           <div key={product.id} className=' p-2 rounded-lg shadow-md hover:shadow-[0_0_20px_rgba(138,43,6,0.4)]
