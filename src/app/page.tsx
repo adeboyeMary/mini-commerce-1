@@ -5,8 +5,7 @@ import { Product } from '@/store/cartStore';
 import Link from 'next/link';
 
 import Image from 'next/image';
-// import { DUMMY_PRODUCTS } from '../component/Catalogue';
-
+import CategoryButtons from '@/component/Buttons';
 
 export default function Home() {
   const {data, isLoading, error} = useQuery<Product[]>({
@@ -16,8 +15,9 @@ export default function Home() {
 
   return (
     <div className="bg-white p-2  text-[#8a2b06] text-sm top-0 mt-20  " >
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Something went wrong.</p>}
+      <CategoryButtons />
+      {isLoading && <p className='text-center font-bold mt-7 '>Loading...</p>}
+      {error && <p className='text-center font-bold mt-7 '>Something went wrong.</p>}
       <div className="list-none grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 m-auto w-[92%] gap-4 ">
         {data?.map((product) => 
           <div key={product.id} className=' p-2 rounded-lg shadow-md hover:shadow-[0_0_20px_rgba(138,43,6,0.4)] '>
